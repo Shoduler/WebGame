@@ -1,0 +1,26 @@
+﻿{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1><b> Illegal Gambling: Dice, v4.0 </b></h1>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+
+	<div class="col-md-4 col-md-offset-1">
+		{{ wtf.quick_form(form) }}		
+	</div>
+	
+	<div class="well col-md-4 col-md-offset-2">
+		{% if result %}<p> The dice rolled a {{ result }}!</p>{% endif %}
+		{% if message %}<p>{{ message }}</p>{% endif %}
+		<br>
+		<p>{% if prevBalance %}You had {{ prevBalance }}$. {% endif %}You now have {{ balance }}$.</p>
+	</div>
+</div>
+{% endblock %}
